@@ -1,0 +1,167 @@
+.header {
+    position: absolute;
+    width: 100%;
+    top: 65.65px;
+    z-index: 100;
+    &__row {
+        max-width: 1790px;
+        padding: 0 15px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__list {
+        display: flex;
+    }
+    &__item {
+        a {
+            position: relative;
+            line-height: 1.222;
+            color: $main-text-color;
+            text-decoration: none;
+            transition: color 0.3s ease 0s;
+            &:hover {
+                color: $second-text-color;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                z-index: 10;
+                left: 0;
+                transform: translateY(5px);
+                height: 2px;
+                background-color: $second-text-color;
+                opacity: 0;
+                transition: transform 0.7s ease 0s;
+            }
+            &:hover::after {
+                transform: translateY(-3px);
+                opacity: 1;
+            }
+        }
+        &:not(:last-child) {
+            margin: 0 40px 0 0;
+        }
+    }
+    &__account-link {
+        position: relative;
+        font-size: 17px;
+        padding: 0 0 0 30px;
+        line-height: 1.235;
+        color: $main-text-color;
+        transition: color 0.3s ease 0s;
+        &:hover {
+            color: $second-text-color;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            height: 20px;
+            width: 20px;
+            top: 0;
+            left: 0;
+            background: url('./../icons/account.svg') 0 0 / cover no-repeat;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 68%;
+            z-index: 10;
+            right: 0;
+            transform: translateY(5px);
+            height: 2px;
+            background-color: $second-text-color;
+            opacity: 0;
+            transition: transform 0.7s ease 0s;
+        }
+        &:hover::after {
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+    }
+    &__button {
+        display: none;
+        position: relative;
+        z-index: 90;
+        height: 25px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        outline: none;
+        background-color: transparent;
+        span {
+            position: relative;
+            display: block;
+            width: 40px;
+            height: 4px;
+            border: none;
+            background-color: #fff;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: -10px;
+                display: block;
+                width: 40px;
+                height: 4px;
+                background-color: #fff;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+                display: block;
+                width: 40px;
+                height: 4px;
+                background-color: #fff;
+            }
+        }       
+    }
+    &-mobile {
+        padding: 70px 50px 50px 30px;
+        width: 320px;
+        height: 100%;
+        position: fixed;
+        z-index: 10;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        top: 0;
+        right: 0;
+        background-color: rgba(11, 29, 38, 0.9);
+    }
+}
+
+.header-mobile .header__list,
+.header-mobile .header__account-link {
+    display: block;
+}
+
+.header-mobile .header__list {
+    flex-direction: column;
+    margin: 0 0 25px 0;
+}
+
+.header-mobile .header__list .header__item:not(:last-child) {
+    margin: 0 0 25px 0;
+}
+
+.header__button-close.header__button span {
+    background-color: transparent;
+}
+
+.header__button-close.header__button span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.header__button-close.header__button span::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
